@@ -1,14 +1,16 @@
 // COLOR
-$f-color: #454858;
-$f-color-secondary: #4d4d4d;
-$active-color: #4ac983;
+$f-color: #333333;
+$f-color-secondary: #565656;
+$f-color-alt: #b5b5b5;
+$active-color: #ffd942;
 $focus-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 
 // FONT
-$f-family-base: "Ebrima", sans-serif;
-$f-weight-heading: 700;
-$f-size: 16px;
-$f-size-heading: 1.5em;
+$f-family-base: "Work Sans", sans-serif;
+$f-family-secondary: "Libre Baskerville", serif;
+$f-weight-heading: 500;
+$f-size: 14px;
+$f-size-heading: 1.43em;
 
 // MEDIA
 // min
@@ -24,5 +26,5 @@ $md-max: 991px;
 $lg-max: 1199px;
 
 // HEADER
-$header-height-xs: 46px;
-$header-height-lg: 70px;
+$header-height-xs: 60px;
+$header-height-lg: 100px;
