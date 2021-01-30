@@ -1,3 +1,32 @@
 /*--------------------
   HEADER
 --------------------*/
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  min-width: 320px;
+  height: $header-height-xs;
+  background: #ffffff;
+  transition: background ease-out 0.2s, height ease-out 0.2s;
+
+  @media screen and (min-width: $lg-min) {
+    height: $header-height-lg;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-scrolled {
+    position: fixed;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+}

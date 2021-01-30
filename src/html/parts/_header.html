@@ -23,4 +23,50 @@
   <!-- .wrapper -->
   <div class="wrapper">
     <!-- .header -->
-    <header class="header"></header><!-- /.header -->
+    <header class="header">
+      <div class="container">
+        <!-- .logo -->
+        <a class="logo" href="/" aria-label="Logo">
+          <img class="logo-img" src="../../img/svg/logo.svg" alt="Kuril Islands Logo" title="Logo">
+        </a><!-- /.logo -->
+        <button class="menu-toggle menu-toggle-open" aria-label="Navigation Open Button" aria-expanded="false">
+          <span class="menu-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <!-- .main-menu -->
+        <nav class="main-menu">
+          <button class="menu-toggle menu-toggle-close" aria-label="Navigation Close Button">
+            <span class="menu-toggle-icon" aria-hidden="true"></span>
+          </button>
+          <ul class="main-menu-list">
+            <!-- .dropdown -->
+            <li class="dropdown">
+              <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">About</button>
+              <ul class="dropdown-menu">
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">COMPANIES</a></li>
+                <li><a href="#">OUR TEAM</a></li>
+              </ul>
+            </li><!-- /.dropdown -->
+            <li><a href="#">Guidttes</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+          <a class="menu-btn-search" href="#search"><span class="visually-hidden">Search</span></a>
+          <!-- .search -->
+          <div class="search search-active">
+            <button class="search-close">
+              <span class="visually-hidden">Button Close Search</span>
+              <span class="search-close-icon" aria-hidden="true"></span>
+            </button>
+            <form class="search-form">
+              <div role="search">
+                <label class="search-label" for="search"><span class="visually-hidden">Search</span></label>
+                <input class="search-input" id="search" type="text" placeholder="Search">
+              </div>
+            </form>
+          </div><!-- /.search -->
+        </nav><!-- /.main-menu -->
+        <div class="menu-overlay" aria-hidden="true" style="display: none;"></div>
+      </div>
+    </header><!-- /.header -->

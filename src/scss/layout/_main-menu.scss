@@ -1,3 +1,233 @@
 /*--------------------
   MAIN-MENU
 --------------------*/
+
+.main-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  min-width: 320px;
+  padding: 55px 15px 45px;
+  overflow: auto;
+  font-weight: 400;
+  text-align: center;
+  color: $f-color-secondary;
+  background: #ffffff;
+  // transform: translate(100%, 0);
+  // display: none;
+  transition: transform 0.5s;
+
+  @media screen and (min-width: $md-min) {
+    right: 0;
+    left: auto;
+    width: 400px;
+  }
+
+  @media screen and (min-width: $lg-min) {
+    position: static;
+    display: flex;
+    align-items: center;
+    width: auto;
+    min-width: auto;
+    padding: 0 0 0 5px;
+    overflow: visible;
+    text-align: left;
+    background: transparent;
+    transform: none;
+    visibility: visible;
+  }
+
+  &-list {
+    list-style: none;
+
+    @media screen and (min-width: $lg-min) {
+      position: relative;
+      display: flex;
+      padding-right: 25px;
+    }
+
+    @media screen and (min-width: $xl-min) {
+      padding-right: 55px;
+    }
+
+    &::before {
+      @media screen and (min-width: $lg-min) {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        background: #e8e8e8;
+        transform: translate(0, -50%);
+
+        @include size(1px, 30px);
+      }
+    }
+
+    li {
+      &:nth-of-type(n+2) {
+        margin-top: 5px;
+      }
+    }
+
+    > li {
+      &:nth-of-type(n+2) {
+        @media screen and (min-width: $lg-min) {
+          margin-top: 0;
+          margin-left: 30px;
+        }
+
+        @media screen and (min-width: $xl-min) {
+          margin-left: 60px;
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 5px 10px;
+      color: inherit;
+      text-transform: uppercase;
+      text-decoration: none;
+      outline: none;
+      transition: 0.15s color, 0.25s box-shadow;
+
+      @media screen and (min-width: $lg-min) {
+        padding: 0;
+      }
+
+      &:hover {
+        color: $active-color;
+      }
+
+      &:focus {
+        box-shadow: $focus-shadow;
+      }
+    }
+  }
+
+  &-active {
+    transform: translate(0);
+  }
+}
+
+.menu-toggle {
+  position: relative;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+
+  @include size(24px, 14px);
+
+  @media screen and (min-width: $lg-min) {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s box-shadow;
+
+    @include size(32px, 32px);
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::after {
+      box-shadow: $focus-shadow;
+    }
+  }
+
+  &-open {
+    border-top: 2px solid $f-color;
+    border-bottom: 2px solid $f-color;
+
+    .menu-toggle-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: $f-color;
+      transform: translate(-50%, -50%);
+
+      @include size(inherit, 2px);
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+
+    .menu-toggle-icon {
+      position: relative;
+      display: block;
+
+      @include size(inherit, inherit);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        border-top: 2px solid $f-color;
+        transform-origin: 50% 50%;
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.menu-btn-search {
+  @media screen and (max-width: $md-max) {
+    display: none;
+  }
+
+  @media screen and (min-width: $lg-min) {
+    display: block;
+    margin-left: 25px;
+    background: url("../../img/svg/icons/search.svg") left top no-repeat;
+    outline: 0;
+    transition: 0.2s box-shadow;
+
+    @include size(20px, 20px);
+  }
+
+  &:focus {
+    @media screen and (min-width: $lg-min) {
+      box-shadow: $focus-shadow;
+    }
+  }
+
+  @media screen and (min-width: $xl-min) {
+    margin-left: 40px;
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  display: none;
+  background: rgba(255, 255, 255, 0.8);
+}
