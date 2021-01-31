@@ -11,7 +11,7 @@
   min-width: 320px;
   height: $header-height-xs;
   background: #ffffff;
-  transition: background ease-out 0.2s, height ease-out 0.2s;
+  transition: height ease-out 0.2s, box-shadow ease-out 0.2s;
 
   @media screen and (min-width: $lg-min) {
     height: $header-height-lg;
@@ -27,6 +27,17 @@
 
   &-scrolled {
     position: fixed;
+    height: $header-height-xs - 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    @media screen and (min-width: $lg-min) {
+      height: $header-height-lg - 50px;
+    }
+
+    .dropdown-menu {
+      @media screen and (min-width: $lg-min) {
+        top: 36px;
+      }
+    }
   }
 }

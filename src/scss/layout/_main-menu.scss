@@ -16,8 +16,8 @@
   text-align: center;
   color: $f-color-secondary;
   background: #ffffff;
-  // transform: translate(100%, 0);
-  // display: none;
+  transform: translate(100%, 0);
+  visibility: hidden;
   transition: transform 0.5s;
 
   @media screen and (min-width: $md-min) {
@@ -36,8 +36,9 @@
     overflow: visible;
     text-align: left;
     background: transparent;
-    transform: none;
-    visibility: visible;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none;
   }
 
   &-list {
@@ -230,4 +231,8 @@
   z-index: 99;
   display: none;
   background: rgba(255, 255, 255, 0.8);
+
+  @media screen and (min-width: $lg-min) {
+    display: none !important;
+  }
 }
