@@ -160,3 +160,93 @@
     }
   }
 }());
+
+(function () {
+  var btnOpenSearch = document.querySelector('.menu-btn-search');
+  var search = document.querySelector('.search');
+  var btnCloseSearch = search.querySelector('.search-close');
+  var overlay = document.querySelector('.search-overlay');
+
+  var focusableEls = search.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  var firstFocusableEl = focusableEls[0];
+  var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+  btnOpenSearch.addEventListener('click', function (e) {
+    e.preventDefault();
+    showSearch();
+  });
+
+  btnCloseSearch.addEventListener('click', function () {
+    hideSearch();
+  });
+
+  overlay.addEventListener('click', hideSearch);
+
+  window.addEventListener('resize', hideSearch);
+
+  document.addEventListener('keydown', function (e) {
+    handleKeyDown(e);
+  });
+
+  // Show search
+  function showSearch() {
+    overlay.style.display = 'block';
+    search.classList.add('search-active');
+
+    setTimeout(function () {
+      search.style.opacity = '1';
+    }, 100);
+
+    firstFocusableEl.focus();
+  }
+
+  // Hide search
+  function hideSearch() {
+    search.style.opacity = '';
+
+    setTimeout(function () {
+      overlay.style.display = 'none';
+      search.classList.remove('search-active');
+    }, 400);
+    btnOpenSearch.focus();
+  }
+
+  // Handle keydown
+  function handleKeyDown(e) {
+    var KEY_TAB = 9;
+    var KEY_ESC = 27;
+
+    switch (e.keyCode) {
+      case KEY_TAB:
+        if (focusableEls.length === 1) {
+          e.preventDefault();
+          break;
+        }
+        if (e.shiftKey) {
+          handleBackwardTab();
+        } else {
+          handleForwardTab();
+        }
+        break;
+      case KEY_ESC:
+        hideSearch();
+        break;
+      default:
+        break;
+    }
+
+    function handleBackwardTab() {
+      if (document.activeElement === firstFocusableEl) {
+        e.preventDefault();
+        lastFocusableEl.focus();
+      }
+    }
+
+    function handleForwardTab() {
+      if (document.activeElement === lastFocusableEl) {
+        e.preventDefault();
+        firstFocusableEl.focus();
+      }
+    }
+  }
+}());

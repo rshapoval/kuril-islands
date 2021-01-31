@@ -16,6 +16,8 @@
     margin-top: 0;
     padding: 210px 0 0;
     background: #ffffff;
+    opacity: 0;
+    transition: 0.4s opacity;
   }
 
   &-close {
@@ -177,6 +179,23 @@
 
     &:focus:-ms-input-placeholder {
       color: transparent;
+    }
+  }
+
+  &-overlay {
+    @media screen and (max-width: $md-max) {
+      display: none !important;
+    }
+
+    @media screen and (min-width: $lg-min) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      display: none;
+      background: rgba(255, 255, 255, 0.8);
     }
   }
 
