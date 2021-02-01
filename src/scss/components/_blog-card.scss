@@ -145,36 +145,20 @@
     outline: none;
     transition: 0.15s color, 0.25s box-shadow;
 
-    &::before,
-    &::after {
-      content: "";
+    svg {
       position: absolute;
-      transition: border-color 0.15s;
-    }
-
-    &::before {
-      top: 8px;
+      top: 4px;
       right: 0;
-      width: 12px;
-      border-top: 1px solid #0f0f0f;
-    }
+      transition: 0.15s fill;
 
-    &::after {
-      top: 7px;
-      right: 0;
-      border-right: 1px solid #0f0f0f;
-      border-bottom: 1px solid #0f0f0f;
-      transform: rotate(-45deg);
-
-      @include size(4px, 4px);
+      @include size(11px, 9px);
     }
 
     &:hover {
       color: $active-color;
 
-      &::before,
-      &::after {
-        border-color: $active-color;
+      svg {
+        fill: $active-color;
       }
     }
 
