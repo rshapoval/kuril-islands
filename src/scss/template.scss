@@ -22,6 +22,7 @@
 @import "components/_logo";
 @import "components/_dropdown";
 @import "components/_search";
+@import "components/_table";
 @import "components/_blog-card";
 
 // LAYOUT
@@ -29,5 +30,6 @@
 @import "layout/_header";
 @import "layout/_main-menu";
 @import "layout/_wrapper";
-@import "layout/_footer";
+@import "layout/_content";
 @import "layout/_last-posts";
+@import "layout/_footer";

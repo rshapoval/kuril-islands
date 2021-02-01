@@ -1,0 +1,102 @@
+/*--------------------
+  CONTENT
+--------------------*/
+
+.content {
+  padding: 55px 0 70px;
+  border-bottom: 1px solid #f1f1f5;
+
+  .table-wrap {
+    margin: 0 0 40px;
+
+    @media screen and (max-width: $sm-max) {
+      overflow-x: scroll;
+    }
+  }
+
+  .table {
+    @media screen and (min-width: $lg-min) {
+      margin-left: -30px;
+    }
+  }
+
+  &-wrap {
+    max-width: 630px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @media screen and (min-width: $lg-min) {
+      padding: 0 30px;
+    }
+
+    > * {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-intro {
+    margin: 0 0 40px;
+    font-weight: 400;
+    font-size: 1.14em;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    margin: 0 0 15px;
+    font-weight: $f-weight-heading;
+    font-size: $f-size-heading;
+  }
+
+  &-text {
+    margin: 0 0 40px;
+  }
+
+  &-quote {
+    position: relative;
+    margin: 0 0 40px;
+    padding: 45px 0 45px 70px;
+    line-height: 1.5;
+    font-family: $f-family-secondary;
+    font-style: italic;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+    &::before {
+      content: "“";
+      position: absolute;
+      top: 50px;
+      left: 0;
+      font-size: 5.7em;
+      line-height: 1;
+      color: $active-color;
+      font-style: normal;
+    }
+
+    p {
+      margin: 0 0 25px;
+      font-size: 1.14em;
+      line-height: 1.8;
+    }
+
+    cite {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+      font-size: 14px;
+      font-family: $f-family-base;
+      color: #797979;
+      font-style: normal;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        min-width: 40px;
+        margin-right: 20px;
+        border-top: 1px solid #797979;
+      }
+    }
+  }
+}

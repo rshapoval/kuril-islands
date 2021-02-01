@@ -1,0 +1,48 @@
+/*--------------------
+  TABLE
+--------------------*/
+
+.table {
+  min-width: 570px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  border: 1px solid #f0f0f0;
+
+  @media screen and (min-width: $md-min) {
+    min-width: 100%;
+  }
+
+  @media screen and (min-width: $lg-min) {
+    min-width: 630px;
+  }
+
+  th {
+    padding: 15px 5px;
+    font-weight: 400;
+    font-size: 0.87em;
+    color: #797979;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:first-of-type {
+      padding-left: 25px;
+    }
+
+    &:last-of-type {
+      padding-right: 25px;
+    }
+  }
+
+  td {
+    padding: 15px 5px;
+    font-weight: 400;
+
+    &:first-of-type {
+      padding-left: 25px;
+    }
+
+    &:last-of-type {
+      padding-right: 25px;
+    }
+  }
+}
