@@ -25,6 +25,10 @@ body {
   line-height: 1.5;
   font-family: $f-family-base;
   color: $f-color;
+
+  &.has-dialog {
+    overflow: hidden;
+  }
 }
 
 ul,

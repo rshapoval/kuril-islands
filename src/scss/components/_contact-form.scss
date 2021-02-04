@@ -1,0 +1,100 @@
+/*--------------------
+  CONTACT-FORM
+--------------------*/
+
+.contact {
+  &-form {
+    font-size: 0.86em;
+    color: #9e9e9e;
+  }
+
+  &-label {
+    display: block;
+    width: 100%;
+    margin: 0 0 30px;
+
+    &:last-child {
+      margin-bottom: 35px;
+    }
+  }
+
+  &-field {
+    display: inherit;
+    width: inherit;
+    padding: 0.5em 0;
+    font-weight: 500;
+    color: $f-color;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #aeaeae;
+    outline: none;
+    transition: border-color 0.15s;
+
+    &:hover,
+    &:focus {
+      border-color: $active-color;
+    }
+
+    &::-webkit-input-placeholder {
+      color: #9e9e9e;
+    }
+
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
+    }
+
+    &:-moz-placeholder {
+      color: #9e9e9e;
+    }
+
+    &:focus:-moz-placeholder {
+      color: transparent;
+    }
+
+    &::-moz-placeholder {
+      color: #9e9e9e;
+    }
+
+    &:focus::-moz-placeholder {
+      color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+      color: #9e9e9e;
+    }
+
+    &:focus:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+
+  &-textarea {
+    min-height: 65px;
+    resize: none;
+  }
+
+  &-submit {
+    display: inline-block;
+    min-width: 140px;
+    padding: 1.1em 0.5em;
+    font-weight: 400;
+    color: #333333;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: $active-color;
+    border: none;
+    border-radius: 2em;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.2s;
+
+    &:hover {
+      background: #ffcc00;
+    }
+
+    &:focus {
+      box-shadow: $focus-shadow;
+    }
+  }
+}

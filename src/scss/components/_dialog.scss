@@ -1,0 +1,122 @@
+/*--------------------
+  DIALOG
+--------------------*/
+
+.dialog {
+  position: relative;
+  max-width: 770px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(17, 20, 48, 0.1);
+
+  @media screen and (min-width: $md-min) {
+    padding: 70px 70px 70px 440px;
+  }
+
+  &::before {
+    @media screen and (min-width: $md-min) {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 368px;
+      background: url("../../img/contact-form_bg.png") left top no-repeat;
+    }
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    display: none;
+    min-width: 320px;
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.8);
+
+    @media screen and (min-width: $md-min) {
+      padding-top: 140px;
+    }
+
+    &-active {
+      display: block;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    transform-origin: 50% 50%;
+    cursor: pointer;
+    transition: 0.4s transform;
+
+    @include size(16px, 16px);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.2s box-shadow;
+
+      @include size(32px, 32px);
+    }
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+
+    &:focus {
+      outline: 0;
+
+      &::after {
+        box-shadow: $focus-shadow;
+      }
+    }
+  }
+
+  &-close-icon {
+    position: relative;
+    display: block;
+
+    @include size(inherit, inherit);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      border-top: 2px solid #484848;
+      transform-origin: 50% 50%;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &-title {
+    margin: 0 0 45px;
+    font-weight: $f-weight-heading;
+    font-size: 1.71em;
+  }
+}

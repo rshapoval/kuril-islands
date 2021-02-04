@@ -250,3 +250,59 @@
     }
   }
 }());
+
+(function () {
+  var body = document.body;
+  var overlay = body.querySelector('.dialog-overlay');
+  if (!overlay) {
+    return false;
+  }
+  var dialog = document.querySelector('.dialog');
+  var dialogCloseBtn = dialog.querySelector('.dialog-close');
+  var focusedElBeforeOpen;
+
+  showDialog();
+
+  dialogCloseBtn.addEventListener('click', closeDialog);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) {
+      closeDialog();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    handleKeyDown(e);
+  });
+
+  // CLOSE DIALOG
+  function closeDialog() {
+    overlay.classList.remove('dialog-overlay-active');
+    body.classList.remove('has-dialog');
+    dialog.setAttribute('aria-expanded', 'false');
+
+    if (focusedElBeforeOpen) {
+      focusedElBeforeOpen.focus();
+    }
+  }
+
+  // SHOW DIALOG
+  function showDialog() {
+    focusedElBeforeOpen = document.activeElement;
+    body.classList.add('has-dialog');
+    overlay.classList.add('dialog-overlay-active');
+    dialog.setAttribute('aria-expanded', 'true');
+    dialogCloseBtn.focus();
+  }
+
+  // Handle keydown
+  function handleKeyDown(e) {
+    var KEY_ESC = 27;
+
+    if (e.keyCode === KEY_ESC) {
+      closeDialog();
+    }
+  }
+
+  return true;
+}());
