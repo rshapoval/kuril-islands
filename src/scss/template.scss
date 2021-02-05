@@ -11,14 +11,12 @@
 // BASE
 // Base styles
 @import "base/_normalize";
-@import "base/_fonts";
 @import "base/_common";
 
 // COMPONENTS
 // Specific modules like a slider, a loader, a widget
 @import "components/_container";
 @import "components/_visually-hidden";
-@import "components/_button";
 @import "components/_logo";
 @import "components/_dropdown";
 @import "components/_search";
