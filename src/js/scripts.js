@@ -1,5 +1,13 @@
 'use strict';
 
+$('.slider-inner').slick({
+  speed: 1000,
+  fade: true,
+  cssEase: 'linear',
+  arrows: false,
+  autoplay: true,
+});
+
 (function () {
   var header = document.querySelector('.header');
   var scrollStatus = window.pageYOffset || document.body.scrollTop;
@@ -112,7 +120,7 @@
 
   document.addEventListener('click', function (e) {
     for (var i = 0; i < dropdowns.length; i++) {
-      if (e.target.contains(dropdowns[i]) || e.target === dropdowns[i]) {
+      if (!dropdowns[i].contains(e.target) || e.target === dropdowns[i]) {
         dropdowns[i].classList.remove('dropdown-active');
       }
     }
@@ -260,6 +268,9 @@
   var dialog = document.querySelector('.dialog');
   var dialogCloseBtn = dialog.querySelector('.dialog-close');
   var focusedElBeforeOpen;
+  var focusableEls = dialog.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  var firstFocusableEl = focusableEls[0];
+  var lastFocusableEl = focusableEls[focusableEls.length - 1];
 
   showDialog();
 
@@ -292,15 +303,45 @@
     body.classList.add('has-dialog');
     overlay.classList.add('dialog-overlay-active');
     dialog.setAttribute('aria-expanded', 'true');
-    dialogCloseBtn.focus();
+    firstFocusableEl.focus();
   }
 
   // Handle keydown
   function handleKeyDown(e) {
+    var KEY_TAB = 9;
     var KEY_ESC = 27;
 
-    if (e.keyCode === KEY_ESC) {
-      closeDialog();
+    switch (e.keyCode) {
+      case KEY_TAB:
+        if (focusableEls.length === 1) {
+          e.preventDefault();
+          break;
+        }
+        if (e.shiftKey) {
+          handleBackwardTab();
+        } else {
+          handleForwardTab();
+        }
+        break;
+      case KEY_ESC:
+        closeDialog();
+        break;
+      default:
+        break;
+    }
+
+    function handleBackwardTab() {
+      if (document.activeElement === firstFocusableEl) {
+        e.preventDefault();
+        lastFocusableEl.focus();
+      }
+    }
+
+    function handleForwardTab() {
+      if (document.activeElement === lastFocusableEl) {
+        e.preventDefault();
+        firstFocusableEl.focus();
+      }
     }
   }
 
